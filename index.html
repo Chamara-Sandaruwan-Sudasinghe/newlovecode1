@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/png" href="2.PNG">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Code ✦</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#02050d;color:#fff}
+body{overflow-x:hidden}
+#stars,#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;width:2px;height:2px;background:#8bdcff;border-radius:50%;opacity:.65;animation:twinkle 2.5s infinite}
+@keyframes twinkle{50%{opacity:.12;transform:scale(.5)}}
+.heart{position:absolute;font-size:18px;color:#6bdcff;text-shadow:0 0 12px #00bfff;animation:floatUp 5s linear forwards}
+@keyframes floatUp{0%{transform:translateY(20px) scale(.7);opacity:0}15%{opacity:1}100%{transform:translateY(-110vh) rotate(20deg);opacity:0}}
+.page{min-height:100vh;display:flex;justify-content:center;padding:22px 14px 35px;position:relative}
+.wrap{width:min(720px,100%);text-align:center;position:relative;z-index:2}
+.topline{font-family:cursive;font-size:clamp(28px,7vw,54px);line-height:1.05;margin:8px 0 22px;transform:rotate(-2deg);text-shadow:0 0 15px rgba(87,202,255,.55)}
+.topline span{color:#62cfff;text-decoration:underline;text-decoration-color:#62cfff}
+.subtitle{font-size:13px;color:#8da4ba;letter-spacing:2px;text-transform:uppercase;margin-bottom:15px}
+.demo{position:relative;margin:auto;width:min(520px,96%);padding:3px;border:1px solid #20bfff;border-radius:7px;background:linear-gradient(145deg,#09111f,#270718 55%,#08111e);box-shadow:0 0 18px #008cff88,0 0 55px #ff146633;animation:glow 3s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 0 28px #008cffbb,0 0 65px #ff146655}}
+.demo-inner{border-radius:5px;min-height:390px;padding:22px 18px 20px;background:
+radial-gradient(circle at 50% 25%,#ff416d35,transparent 28%),
+linear-gradient(180deg,#6f0929,#a30d3f 50%,#4b071e);position:relative;overflow:hidden}
+.demo-inner:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle,#fff 0 1px,transparent 2px);background-size:34px 34px;opacity:.12;transform:rotate(15deg);animation:snow 12s linear infinite}
+@keyframes snow{to{transform:translate3d(70px,100px,0) rotate(15deg)}}
+.bubbles{position:absolute;inset:0;pointer-events:none}
+.bubble{position:absolute;width:8px;height:8px;background:#ff8bad;border-radius:50%;box-shadow:0 0 15px #ff3d78;animation:bubble 3s ease-in infinite}
+@keyframes bubble{0%{transform:translateY(30px);opacity:0}30%{opacity:1}100%{transform:translateY(-340px) scale(1.8);opacity:0}}
+.avatar{position:relative;z-index:1;width:122px;height:122px;margin:0 auto 14px;border-radius:18px;background:#fff;display:grid;place-items:center;font-size:66px;box-shadow:0 8px 25px #0008}
+h1{position:relative;z-index:1;font-family:cursive;font-size:clamp(30px,8vw,48px);margin:0 0 7px}
+.message{position:relative;z-index:1;font-size:13px;color:#ffdbe6;margin:0 auto 18px;max-width:390px;line-height:1.6}
+.smallbox{position:relative;z-index:1;margin:auto auto 16px;max-width:410px;padding:13px 15px;border:1px solid #ff9ab6;border-radius:12px;background:#5a0927aa;box-shadow:inset 0 0 20px #ff2f6b16}
+#idea{min-height:42px;display:flex;align-items:center;justify-content:center}
+button{position:relative;z-index:3;border:0;border-radius:999px;padding:14px 23px;font-weight:800;font-size:14px;color:#fff;background:linear-gradient(90deg,#ff2e72,#ff174d);box-shadow:0 0 20px #ff246b88;cursor:pointer;transition:.2s transform,.2s box-shadow}
+button:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 0 30px #ff246bbb}
+button:active{transform:scale(.96)}
+.hint{margin-top:18px;font-size:12px;color:#a8c2d9}
+.comment{margin:24px auto 14px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:20px;font-weight:800}
+.comment:before,.comment:after{content:"";height:1px;width:70px;background:#25caff;box-shadow:0 0 10px #00c8ff}
+.comment b{color:#6ee1ff}
+.code{margin:0 auto;width:min(610px,96%);text-align:left;border:1px solid #314967;border-radius:14px;background:#07101d;box-shadow:0 0 25px #006cff35;overflow:hidden}
+.bar{height:32px;border-bottom:1px solid #253b55;display:flex;align-items:center;padding:0 11px;gap:7px}
+.dot{width:9px;height:9px;border-radius:50%}
+.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+.file{margin-left:auto;color:#6f8ca8;font-size:11px;letter-spacing:1px}
+pre{margin:0;padding:17px 16px 20px;white-space:pre-wrap;font:12px/1.65 Consolas,Monaco,monospace;color:#c8d6e5}
+.k{color:#ff5e86}.s{color:#71e5ff}.v{color:#b79cff}.c{color:#667f99}
+.footer{font-family:cursive;color:#7890a8;font-size:17px;margin-top:18px}
+.firework{position:fixed;width:7px;height:7px;border-radius:50%;pointer-events:none;z-index:10;background:#fff;box-shadow:0 0 14px 4px #65dfff;animation:burst .9s ease-out forwards}
+@keyframes burst{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--x),var(--y)) scale(.15);opacity:0}}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(30px);background:#081525ee;border:1px solid #29cfff;border-radius:14px;padding:12px 17px;color:#e9faff;font-size:13px;opacity:0;transition:.3s;z-index:20;box-shadow:0 0 25px #00bfff55}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:480px){
+ .page{padding-top:12px}
+ .demo-inner{min-height:365px;padding:20px 13px}
+ .avatar{width:105px;height:105px;font-size:56px}
+ .comment{font-size:17px}
+ .comment:before,.comment:after{width:42px}
+ pre{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div id="stars"></div>
+<div id="hearts"></div>
+
+<main class="page">
+<div class="wrap">
+  <div class="topline">I coded this<br>just for <span>you ♡</span></div>
+  <div class="subtitle">a tiny interactive love experiment</div>
+
+  <section class="demo">
+    <div class="demo-inner">
+      <div class="bubbles">
+        <i class="bubble" style="left:8%;top:75%;animation-delay:.2s"></i>
+        <i class="bubble" style="left:18%;top:88%;animation-delay:1.1s"></i>
+        <i class="bubble" style="left:82%;top:70%;animation-delay:.7s"></i>
+        <i class="bubble" style="left:91%;top:86%;animation-delay:1.7s"></i>
+        <i class="bubble" style="left:52%;top:92%;animation-delay:2s"></i>
+      </div>
+      <div class="avatar">🧸💗</div>
+      <h1 id="title">I knew it! 😍</h1>
+      <p class="message">You just unlocked a tiny secret made from code, stars and a little bit of love.</p>
+      <div class="smallbox"><div id="idea">Click the button and I'll create a little love idea for you ✨</div></div>
+      <button id="loveBtn">💗 Generate Love Idea 💗</button>
+      <div class="hint">tap again for another idea</div>
+    </div>
+  </section>
+
+  <div class="comment">💬 COMMENT <b>“AWESOME”</b> ↓</div>
+
+  <section class="code">
+    <div class="bar"><i class="dot r"></i><i class="dot y"></i><i class="dot g"></i><span class="file">love.js</span></div>
+<pre><span class="c">// a tiny program with one purpose...</span>
+<span class="k">const</span> heart = {
+  <span class="k">for</span>: <span class="s">"you"</span>,
+  <span class="k">mood</span>: <span class="s">"forever"</span>,
+  <span class="k">secret</span>: <span class="s">"click the button"</span>
+};
+
+<span class="k">function</span> <span class="v">makeLove</span>() {
+  <span class="k">return</span> <span class="s">"one more reason to smile ♡"</span>;
+}</pre>
+  </section>
+
+  <div class="footer">Real love has no bugs... ♡</div>
+</div>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const ideas = [
+  "Send them a voice note saying one thing you genuinely love about them. 🎧❤️",
+  "Make a tiny playlist of 5 songs and name it “Us”. 🎶💗",
+  "Hide a sweet note somewhere they will find it unexpectedly. 💌",
+  "Take them for a late-night walk and look at the stars together. 🌙✨",
+  "Send a random message: “Just wanted you to know you made me smile today.” 😊",
+  "Create a photo collage of your favourite little memories together. 📸💕",
+  "Buy their favourite snack and leave it with a handwritten note. 🍫💖",
+  "Plan a surprise mini-date with three tiny stops: food, a walk, and a memory. 🥰",
+  "Ask them: “What is one dream you want us to experience together?” 🌎❤️",
+  "Write a 3-line love letter and send it at exactly 11:11. ✨💌",
+  "Make a silly inside-joke certificate: “Officially my favourite person.” 🏆💕",
+  "Tell them one specific moment when they made your life better. 🫶"
+];
+
+const stars = document.getElementById("stars");
+for(let i=0;i<70;i++){
+  const s=document.createElement("i");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDelay=(Math.random()*3)+"s";
+  stars.appendChild(s);
+}
+
+function floatingHeart(){
+  const h=document.createElement("span");
+  h.className="heart";
+  h.textContent=["♡","♥","💗","✦"][Math.floor(Math.random()*4)];
+  h.style.left=(5+Math.random()*90)+"%";
+  h.style.bottom=(-20-Math.random()*20)+"px";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.getElementById("hearts").appendChild(h);
+  setTimeout(()=>h.remove(),8500);
+}
+setInterval(floatingHeart,650);
+
+function fireworks(){
+  const cx=window.innerWidth/2, cy=Math.min(window.innerHeight*.48,430);
+  for(let i=0;i<30;i++){
+    const p=document.createElement("i");
+    p.className="firework";
+    const a=(Math.PI*2*i)/30, d=50+Math.random()*130;
+    p.style.left=cx+"px"; p.style.top=cy+"px";
+    p.style.setProperty("--x",Math.cos(a)*d+"px");
+    p.style.setProperty("--y",Math.sin(a)*d+"px");
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),950);
+  }
+}
+
+let last=-1;
+document.getElementById("loveBtn").addEventListener("click",()=>{
+  let n;
+  do{n=Math.floor(Math.random()*ideas.length)}while(n===last);
+  last=n;
+  const box=document.getElementById("idea");
+  box.style.opacity=0;
+  setTimeout(()=>{
+    box.textContent=ideas[n];
+    box.style.opacity=1;
+  },180);
+  document.getElementById("title").textContent=["A little secret… 💘","Made with code & feelings 💗","You unlocked it! ✨","For someone special 🫶"][Math.floor(Math.random()*4)];
+  fireworks();
+  for(let i=0;i<5;i++)setTimeout(floatingHeart,i*120);
+  const toast=document.getElementById("toast");
+  toast.textContent="Love idea generated ✨";
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),1600);
+});
+</script>
+</body>
+</html>
